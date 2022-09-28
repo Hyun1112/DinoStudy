@@ -125,5 +125,6 @@ public class MainActivity extends AppCompatActivity {
                 btn_heart.setImageResource(R.drawable.heart_y);
             }
         });
+
     }
 }
