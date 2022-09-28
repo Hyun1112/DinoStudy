@@ -5,15 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="구글 로그인하기"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center" />
-    -->
-
     <!--로그인 후 본인 프로필로 변경 필-->
     <ImageView
         android:id="@+id/drawer_profile"
