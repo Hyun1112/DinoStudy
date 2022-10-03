@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment1.xml" value="0.17527173913043478" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_chart.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_community.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_diary.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_heart.xml" value="0.15670289855072464" />
+        <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_todo.xml" value="0.2234375" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/fragment_watch.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/login.xml" value="0.213768115942029" />
         <entry key="..\:/Users/wkrdm/AndroidStudioProjects/DinoStudy/app/src/main/res/layout/navi_header.xml" value="0.1453125" />
