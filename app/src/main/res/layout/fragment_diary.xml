@@ -1,11 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <View
+        android:id="@+id/view_diary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="?attr/actionBarSize" />
+
+    <LinearLayout
+        android:id="@+id/layout_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fragment5" />
+        android:layout_below="@+id/view_diary"
+        android:layout_centerInParent="true">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/btn_diary_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/day_diary"
+            android:src="@drawable/calendar"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/day_diary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="2022.10.03" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/compliment_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_day"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/compliment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="칭찬 일기"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/smile" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/compliment"
+            android:background="#F3F3F3"
+            android:hint="오늘의 칭찬을 적어보세요!" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/reflection_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/compliment_all"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/reflection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hmm" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반성 일기"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hmm" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reflection"
+            android:background="#F3F3F3"
+            android:hint="오늘의 반성을 적어보세요!" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reflection_all"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/plus" />
+
+
+</RelativeLayout>
