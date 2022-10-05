@@ -130,34 +130,11 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
             }
         });
 
-        /*
-        //길게 누르면 삭제
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                remove(holder.getAdapterPosition());
-                return true;
-            }
-        });
-        */
-
     }
 
     @Override
     public int getItemCount() {
         return (null != arrayList ? arrayList.size() : 0);
     }
-
-    /*
-    public void remove(int position){
-        try {
-            arrayList.remove(position); //리스트 뷰 지움
-            notifyItemRemoved(position); //새로고침
-        } catch (IndexOutOfBoundsException ex){
-            ex.printStackTrace();
-        }
-    }
-    */
-
 
 }
