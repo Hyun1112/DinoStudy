@@ -1,12 +1,21 @@
 package com.example.dinostudy;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,9 +23,87 @@ import java.util.ArrayList;
 public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.CustomViewHolder> {
 
     private ArrayList<Data_Subject> arrayList;
+    private Context context;
 
     public StopwatchAdapter(ArrayList<Data_Subject> arrayList) {
         this.arrayList = arrayList;
+        this.context= context;
+    }
+
+    public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
+
+
+        protected TextView tv_subject;
+        protected TextView tv_subject_time;
+
+        public CustomViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            this.tv_subject = (TextView) itemView.findViewById(R.id.tv_subject);
+            this.tv_subject_time = (TextView) itemView.findViewById(R.id.tv_subject_time);
+
+            itemView.setOnCreateContextMenuListener(this);
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+
+            MenuItem Edit = contextMenu.add(Menu.NONE, 1001, 1, "편집");
+            MenuItem Delete = contextMenu.add(Menu.NONE, 1002, 2, "삭제");
+            Edit.setOnMenuItemClickListener(onEditMenu);
+            Delete.setOnMenuItemClickListener(onEditMenu);
+
+        }
+
+        private final MenuItem.OnMenuItemClickListener onEditMenu = new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+                    case 1001:  //편집 기능
+                        AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
+                        View view = LayoutInflater.from(itemView.getContext()).inflate(R.layout.plus_subject, null, false);
+
+                        builder.setView(view);
+                        final EditText et_subject = (EditText)view.findViewById(R.id.et_subject);
+                        final Button btn_subject_name = (Button)view.findViewById(R.id.btn_subject_name);
+                        btn_subject_name.setText("변경");
+
+                        //기존 데이터
+                        et_subject.setText(arrayList.get(getAdapterPosition()).getTv_subject());
+
+                        final AlertDialog dialog = builder.create();
+                        btn_subject_name.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //새로 입력한 이름으로 업데이트
+                                String str_subject = et_subject.getText().toString();
+                                String str_subject_time = "00:00:00";
+
+                                Data_Subject ary = new Data_Subject(str_subject, str_subject_time);
+
+                                arrayList.set(getAdapterPosition(), ary);
+                                notifyItemChanged(getAdapterPosition()); //새로고침
+
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialog.show();
+
+                        break;
+
+                    case 1002:  //삭제 기능
+                        arrayList.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
+
+                        break;
+                }
+
+                return true;
+            }
+        };
     }
 
     @NonNull
@@ -43,6 +130,7 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
             }
         });
 
+        /*
         //길게 누르면 삭제
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -51,6 +139,7 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
                 return true;
             }
         });
+        */
 
     }
 
@@ -59,6 +148,7 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
         return (null != arrayList ? arrayList.size() : 0);
     }
 
+    /*
     public void remove(int position){
         try {
             arrayList.remove(position); //리스트 뷰 지움
@@ -67,16 +157,7 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
             ex.printStackTrace();
         }
     }
+    */
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView tv_subject;
-        protected TextView tv_subject_time;
-
-        public CustomViewHolder(@NonNull View itemView) {
-            super(itemView);
-            this.tv_subject = (TextView) itemView.findViewById(R.id.tv_subject);
-            this.tv_subject_time = (TextView) itemView.findViewById(R.id.tv_subject_time);
-        }
-    }
 }
