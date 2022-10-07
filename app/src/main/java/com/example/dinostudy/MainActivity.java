@@ -1,6 +1,7 @@
 package com.example.dinostudy;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    //ImageButton navi_menu;
     ImageButton btn_todo, btn_chart, btn_watch, btn_commu, btn_diary, btn_heart;
 
     @Override
@@ -30,12 +32,19 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 왼쪽 상단 버튼 만들기
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu); //왼쪽 상단 버튼 아이콘 지정
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.navi_menu); //왼쪽 상단 버튼 아이콘 지정
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
 
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView = (NavigationView)findViewById(R.id.navigation_view);
+        //navi_menu = (ImageButton)findViewById(R.id.navi_menu);
+
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
+        //actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 만들기
+        //actionBar.setHomeAsUpIndicator(R.drawable.menu); //뒤로가기 버튼 이미지 지정
 
         btn_todo = (ImageButton)findViewById(R.id.btn_chk);
         btn_chart = (ImageButton)findViewById(R.id.btn_chart);

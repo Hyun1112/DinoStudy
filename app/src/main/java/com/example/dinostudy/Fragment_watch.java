@@ -3,10 +3,12 @@ package com.example.dinostudy;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -19,12 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Dictionary;
 
-public class Fragment_watch extends Fragment {
+public class Fragment_watch extends Fragment implements View.OnClickListener {
 
     private ArrayList<Data_Subject> arrayList;
     private StopwatchAdapter stopwatchAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
+    private Chronometer chronometer;
 
     public Fragment_watch(){
 
@@ -48,6 +51,12 @@ public class Fragment_watch extends Fragment {
         recyclerView.setAdapter(stopwatchAdapter);
 
         ImageButton btn_plus_subject = (ImageButton)v.findViewById(R.id.btn_plus_subject);
+        Button btn_start = (Button)v.findViewById(R.id.btn_start);
+        Button btn_pause = (Button)v.findViewById(R.id.btn_pause);
+        chronometer = (Chronometer)v.findViewById(R.id.chronometer);
+
+        btn_start.setOnClickListener(this);
+        btn_pause.setOnClickListener(this);
 
         btn_plus_subject.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,5 +97,18 @@ public class Fragment_watch extends Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_start:
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
+                break;
+            case R.id.btn_pause:
+                chronometer.stop();
+                break;
+        }
     }
 }
