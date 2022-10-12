@@ -66,14 +66,14 @@ public class StopwatchAdapter extends RecyclerView.Adapter<StopwatchAdapter.Cust
 
                         builder.setView(view);
                         final EditText et_subject = (EditText)view.findViewById(R.id.et_subject);
-                        final Button btn_subject_name = (Button)view.findViewById(R.id.btn_subject_name);
-                        btn_subject_name.setText("변경");
+                        final Button btn_subject_insert = (Button)view.findViewById(R.id.btn_subject_insert);
+                        btn_subject_insert.setText("변경");
 
                         //기존 데이터
                         et_subject.setText(arrayList.get(getAdapterPosition()).getTv_subject());
 
                         final AlertDialog dialog = builder.create();
-                        btn_subject_name.setOnClickListener(new View.OnClickListener() {
+                        btn_subject_insert.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 //새로 입력한 이름으로 업데이트

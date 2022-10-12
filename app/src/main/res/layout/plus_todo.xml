@@ -15,17 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="과목 입력" />
+            android:text="할 일" />
 
         <EditText
-            android:id="@+id/et_subject"
+            android:id="@+id/et_todo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="과목명을 입력하세요" />
+            android:hint="내용을 입력하세요" />
 
         <Button
-            android:id="@+id/btn_subject_insert"
+            android:id="@+id/btn_todo_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
