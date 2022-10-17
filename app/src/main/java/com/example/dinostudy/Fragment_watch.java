@@ -86,7 +86,7 @@ public class Fragment_watch extends Fragment {
                 builder.setView(view1);
 
                 final EditText et_subject = (EditText)view1.findViewById(R.id.et_subject);
-                final Button btn_subject_name = (Button)view1.findViewById(R.id.btn_subject_name);
+                final Button btn_subject_name = (Button)view1.findViewById(R.id.btn_subject_insert);
 
                 //btn_subject_name.setText("삽입");
                 final AlertDialog dialog = builder.create();
@@ -100,7 +100,7 @@ public class Fragment_watch extends Fragment {
 
                         //ArrayList에 추가
                         Data_Subject dataSubject = new Data_Subject(strSubject, subjectTime);
-                        arrayList.add(0, dataSubject); //첫번째 줄
+                        arrayList.add(dataSubject); //마지막 줄에 추가. 첫번째 줄은 (0, dataSubject)
                         stopwatchAdapter.notifyDataSetChanged(); //새로고침
 
                         dialog.dismiss();
