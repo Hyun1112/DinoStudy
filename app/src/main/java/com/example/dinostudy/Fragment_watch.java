@@ -2,6 +2,8 @@ package com.example.dinostudy;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -90,6 +92,8 @@ public class Fragment_watch extends Fragment {
 
                 //btn_subject_name.setText("삽입");
                 final AlertDialog dialog = builder.create();
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
                 btn_subject_name.setOnClickListener(new View.OnClickListener() {
                     @Override

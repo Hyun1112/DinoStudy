@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         btn_diary = (ImageButton)findViewById(R.id.btn_diary);
         btn_heart = (ImageButton)findViewById(R.id.btn_heart);
 
+        //btn_watch.performClick();
+
         btn_todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

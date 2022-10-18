@@ -3,6 +3,8 @@ package com.example.dinostudy;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,6 +69,8 @@ public class Fragment_todo extends Fragment {
                 final EditText editText_todo = (EditText)view1.findViewById(R.id.et_todo);
 
                 final AlertDialog dialog = builder.create();
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
                 btn_todo_insert.setOnClickListener(new View.OnClickListener() {
                     @Override
