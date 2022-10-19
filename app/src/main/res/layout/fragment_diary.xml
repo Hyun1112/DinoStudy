@@ -72,8 +72,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:text="칭찬 일기" />
+                    android:text="칭찬 일기"
+                    android:textSize="30dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -89,9 +89,9 @@
                 android:layout_height="200dp"
                 android:layout_below="@+id/compliment"
                 android:layout_marginTop="-2dp"
-                android:padding="8dp"
                 android:background="#F3F3F3"
                 android:hint="오늘의 칭찬을 적어보세요!"
+                android:padding="8dp"
                 android:scrollbars="vertical" />
 
         </RelativeLayout>
@@ -122,8 +122,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:text="반성 일기" />
+                    android:text="반성 일기"
+                    android:textSize="30dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -138,9 +138,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@+id/reflection"
-                android:padding="8dp"
                 android:background="#F3F3F3"
                 android:hint="오늘의 반성을 적어보세요!"
+                android:padding="8dp"
                 android:scrollbars="vertical" />
 
         </RelativeLayout>
