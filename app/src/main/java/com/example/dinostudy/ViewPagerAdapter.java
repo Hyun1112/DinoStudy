@@ -12,31 +12,29 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> arrayList = new ArrayList<>();
     private ArrayList<String> name = new ArrayList<>();
 
-    public ViewPagerAdapter(@NonNull FragmentManager fm) {
-        super(fm);
-        arrayList.add(new FragmentDayChart());
-        arrayList.add(new FragmentWeekChart());
-        arrayList.add(new FragmentMonthChart());
-
-        name.add("일간");
-        name.add("주간");
-        name.add("월간");
+    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+        super(fm, behavior);
     }
 
     @NonNull
-    @Override
+    @Override  //제목
     public CharSequence getPageTitle(int position){
         return name.get(position);
     }
 
     @NonNull
-    @Override
+    @Override  //화면의 실제 프래그먼트 반환
     public Fragment getItem(int position) {
         return arrayList.get(position);
     }
 
-    @Override
+    @Override //페이지수
     public int getCount() {
         return arrayList.size();
+    }
+
+    public void addFragment(Fragment fragment, String title) {
+        arrayList.add(fragment);
+        name.add(title);
     }
 }
