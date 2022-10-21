@@ -10,11 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+
 public class FragmentDayChart extends Fragment {
     public FragmentDayChart(){
 
     }
 
+    PieChart pieChart;
+    private LineChart lineChart;
     private TextView tv_daychart;
 
     @Nullable

@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/view_day"
-        android:layout_marginBottom="55dp">
+        android:layout_marginBottom="55dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_daychart"
@@ -23,6 +24,16 @@
             android:layout_gravity="center"
             android:text="일간 차트"
             android:textSize="30dp" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/day_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/piechart"/>
 
     </LinearLayout>
 
