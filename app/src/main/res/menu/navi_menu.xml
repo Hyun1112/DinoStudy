@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/item_info"
-        android:title="내 정보" />
+        android:title="👥 내 정보 👥" />
 
     <item
         android:id="@+id/item_mission"
-        android:title="미션 수행하기" />
+        android:title="✨ 미션 수행하기 ✨" />
 
     <item
         android:id="@+id/item_group"
-        android:title="내 그룹" />
+        android:title="📝 내 스터디그룹 📝" />
 </menu>

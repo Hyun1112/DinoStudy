@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center"
+            android:gravity="top"
             android:background="@drawable/edittext_subject"/>
 
         <LinearLayout
@@ -84,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_gravity="center"
+            android:gravity="top"
             android:background="@drawable/edittext_subject" />
 
         <Button

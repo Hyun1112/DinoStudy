@@ -73,8 +73,14 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.CustomViewHold
                             public void onClick(View view) {
                                 String todo_content = et_todo.getText().toString();
 
-                                //false를 디폴트로 넣었지만 현재값 유지하게 바꿔야 함
                                 Data_Todo dataTodo = new Data_Todo(false, todo_content);
+
+                                //현재 체크여부 유지
+                                if(cb_todo.isChecked()){
+                                    dataTodo = new Data_Todo(true, todo_content);
+                                } else if(!cb_todo.isChecked()){
+                                    dataTodo = new Data_Todo(false, todo_content);
+                                }
 
                                 arrayList.set(getAdapterPosition(), dataTodo);
 

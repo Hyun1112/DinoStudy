@@ -20,7 +20,8 @@
             android:id="@+id/spinner_board"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left"
+            android:entries="@array/category"/>
         
         <View
             android:layout_width="0dp"

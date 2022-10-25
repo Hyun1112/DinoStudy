@@ -11,26 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:theme="@style/Theme.NavigationDrawer"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1">
+            android:layout_height="?attr/actionBarSize">
 
-            <!--
-            <ImageButton
-                android:id="@+id/navi_menu"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:theme="@style/Theme.NavigationDrawer"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1">
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:padding="15dp"
-                android:src="@drawable/menu" />
-             -->
-        </androidx.appcompat.widget.Toolbar>
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="7dp"
+                    android:src="@drawable/coin" />
+
+                <TextView
+                    android:id="@+id/coin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="200" />
+
+            </LinearLayout>
+
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/frame"
@@ -115,6 +130,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/navi_header"
+        app:itemTextColor="@color/black"
         app:menu="@menu/navi_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -43,7 +43,7 @@
             android:id="@+id/tv_content_thumnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="안녕하세요 토익 900점을 목표로 하고 있는 대학생입니다" />
+            android:text="안녕하세요 토익 900점을 목표로 하고 있는 대학생입니다\n학원을 다니는 게 나을까요?" />
 
     </LinearLayout>
 
