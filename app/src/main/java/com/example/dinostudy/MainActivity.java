@@ -8,9 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -45,6 +48,31 @@ public class MainActivity extends AppCompatActivity {
         //actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         //actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 만들기
         //actionBar.setHomeAsUpIndicator(R.drawable.menu); //뒤로가기 버튼 이미지 지정
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                item.setChecked(true);
+                drawerLayout.closeDrawers();
+
+                int id = item.getItemId();
+                String title = item.getTitle().toString();
+
+                if(id == R.id.item_info){
+                    //Intent intent = new Intent(getApplicationContext(), ??.class);
+                    //startActivity(intent);
+                } else if(id == R.id.item_mission){
+                    Intent intent = new Intent(getApplicationContext(), MissionActivity.class);
+                    startActivity(intent);
+                } else if(id == R.id.item_group){
+
+                }
+
+                return true;
+            }
+        });
+
+        String id = null;
 
         btn_todo = (ImageButton)findViewById(R.id.btn_chk);
         btn_chart = (ImageButton)findViewById(R.id.btn_chart);
@@ -157,7 +185,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_watch.performClick(); //첫 홈화면을 스톱워치로 설정하기
+
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
