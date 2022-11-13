@@ -12,16 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.dinostudy.R;
 import com.example.dinostudy.databinding.ActivityLoginBinding;
-import com.example.dinostudy.model.CheckUserEmailRequest;
+import com.example.dinostudy.model.CheckEmailData;
 import com.example.dinostudy.viewModel.LoginViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,14 +29,12 @@ public class LoginActivity extends AppCompatActivity{
 
     private ActivityLoginBinding binding;
 
-    private SignInButton btnSignIn; // 구글 로그인 버튼
     private FirebaseAuth auth; // 파이어베이스 인증 객체
     private GoogleSignInClient googleSignInClient; // 구글 API 클라이언트 객체
     private static final int REQ_SIGN_IN_GOOGLE = 100; // 구글 로그인 결과 코드
     private static final int REQ_GET_TOKEN = 200;
 
-    private LoginViewModel viewModel;
-
+    private LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +43,7 @@ public class LoginActivity extends AppCompatActivity{
         View view = binding.getRoot();
         setContentView(view);
 
-        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
         GoogleSignInOptions googleSignInOptions=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -108,15 +104,17 @@ public class LoginActivity extends AppCompatActivity{
                             // Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             // intent.putExtra("nickname", account.getDisplayName());
 
-                            String g_name = account.getDisplayName(); // 닉네임
+                            // String g_name = account.getDisplayName(); // 닉네임
                             String g_mail = account.getEmail(); // 이메일
 
-                            viewModel.checkUserEmail(g_mail);
+                            loginViewModel.checkUserEmail(new CheckEmailData(g_mail));
 
-                            viewModel.resultCode.observe(LoginActivity.this, code -> {
-                                if(code.equals("200")) {
+                            loginViewModel.resultCode.observe(LoginActivity.this, res -> {
+                                if(res.getCode() == 200) {
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    intent.putExtra("nickname", res.getMessage()); // username 보내기
                                     startActivity(intent);
+                                    finish();
                                 }
                             });
 
