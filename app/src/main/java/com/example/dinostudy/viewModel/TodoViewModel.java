@@ -6,19 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.dinostudy.model.AddTodoData;
-import com.example.dinostudy.model.AddTodoResponse;
-
-import com.example.dinostudy.model.CreateTodoData;
-import com.example.dinostudy.model.CreateTodoResponse;
-import com.example.dinostudy.model.DeleteTodoData;
-import com.example.dinostudy.model.DeleteTodoResponse;
-import com.example.dinostudy.model.EditTodoData;
-import com.example.dinostudy.model.ReadTodoData;
-import com.example.dinostudy.model.ReadTodoResponse;
-import com.example.dinostudy.model.EditTodoResponse;
-import com.example.dinostudy.model.UpdateCheckTodoData;
-import com.example.dinostudy.model.UpdateCheckTodoResponse;
+import com.example.dinostudy.model.todo.AddTodoData;
+import com.example.dinostudy.model.todo.AddTodoResponse;
+import com.example.dinostudy.model.todo.CreateTodoData;
+import com.example.dinostudy.model.todo.CreateTodoResponse;
+import com.example.dinostudy.model.todo.DeleteTodoData;
+import com.example.dinostudy.model.todo.DeleteTodoResponse;
+import com.example.dinostudy.model.todo.EditTodoData;
+import com.example.dinostudy.model.todo.ReadTodoData;
+import com.example.dinostudy.model.todo.ReadTodoResponse;
+import com.example.dinostudy.model.todo.EditTodoResponse;
+import com.example.dinostudy.model.todo.UpdateCheckTodoData;
+import com.example.dinostudy.model.todo.UpdateCheckTodoResponse;
 import com.example.dinostudy.repository.RetrofitClient;
 import com.example.dinostudy.repository.ServiceApi;
 
@@ -27,12 +26,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TodoViewModel extends AndroidViewModel {
-    //public MutableLiveData<CheckTodoResponse> checkResult = new MutableLiveData<>();
     public MutableLiveData<CreateTodoResponse> createResult = new MutableLiveData<>();
     public MutableLiveData<ReadTodoResponse> readResult = new MutableLiveData<>();
     public MutableLiveData<AddTodoResponse> addResult = new MutableLiveData<>();
     public MutableLiveData<EditTodoResponse> editResult = new MutableLiveData<>();
     public MutableLiveData<DeleteTodoResponse> deleteResult = new MutableLiveData<>();
+    public MutableLiveData<UpdateCheckTodoResponse> checkResult = new MutableLiveData<>();
+
 
 
 
@@ -130,7 +130,7 @@ public class TodoViewModel extends AndroidViewModel {
             public void onResponse(Call<DeleteTodoResponse> call, Response<DeleteTodoResponse> response) {
                 DeleteTodoResponse result = response.body();
                 deleteResult.postValue(result);
-                System.out.println("edit resultCode: "+ result.getCode());
+                System.out.println("delete resultCode: "+ result.getCode());
             }
 
             @Override
@@ -148,8 +148,8 @@ public class TodoViewModel extends AndroidViewModel {
             @Override
             public void onResponse(Call<UpdateCheckTodoResponse> call, Response<UpdateCheckTodoResponse> response) {
                 UpdateCheckTodoResponse result = response.body();
-//                deleteResult.postValue(result);
-//                System.out.println("edit resultCode: "+ result.getCode());
+                checkResult.postValue(result);
+                System.out.println("check resultCode: "+ result.getCode());
             }
 
             @Override
@@ -159,5 +159,7 @@ public class TodoViewModel extends AndroidViewModel {
             }
         });
     }
+
+
 
 }

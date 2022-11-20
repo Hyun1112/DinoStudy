@@ -1,35 +1,17 @@
 package com.example.dinostudy.view.adapter;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.dinostudy.R;
-import com.example.dinostudy.databinding.FragmentPlusTodoBinding;
-import com.example.dinostudy.databinding.ItemListTodoBinding;
-import com.example.dinostudy.model.AddTodoData;
-import com.example.dinostudy.model.AddTodoResponse;
-import com.example.dinostudy.view.item.SubjectItem;
+import com.example.dinostudy.databinding.ItemTodoBinding;
 import com.example.dinostudy.view.item.TodoItem;
-import com.example.dinostudy.viewModel.TodoViewModel;
 
 import java.util.ArrayList;
 
@@ -55,11 +37,11 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     // ViewHolder 객체
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        ItemListTodoBinding binding;
+        ItemTodoBinding binding;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            binding = ItemListTodoBinding.bind(itemView);
+            binding = ItemTodoBinding.bind(itemView);
         }
 
         // 레이아웃 연결
@@ -78,7 +60,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>{
     @Override
     // ViewHolder 만들어질 때 실행할 동작
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(context).inflate(R.layout.item_list_todo, parent, false);
+        View itemView= LayoutInflater.from(context).inflate(R.layout.item_todo, parent, false);
         return new ViewHolder(itemView);
     }
 
