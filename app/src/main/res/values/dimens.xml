@@ -2,4 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="design_fab_size_normal" tools:override="true">30dp</dimen>
     <dimen name="design_fab_image_size" tools:override="true">30dp</dimen>
+    <dimen name="fab_search">60dp</dimen>
+    <dimen name="fab_write">120dp</dimen>
 </resources>

@@ -32,6 +32,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.CustomViewHo
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         Data_Board data = arrayList.get(position);
         holder.title.setText(data.getTitle());
+        holder.contents.setText(data.getContents());
         holder.nickname.setText(data.getDocumentID());
         holder.board_category.setText(data.getCategory());
         holder.board_date.setText(data.getDate());
@@ -45,7 +46,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.CustomViewHo
     public class CustomViewHolder extends RecyclerView.ViewHolder{
 
         private TextView title;
-        //private TextView contents;
+        private TextView contents;
         private TextView board_category;
         private TextView nickname;
         private TextView board_date;
@@ -53,8 +54,8 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.CustomViewHo
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.nickname);
-            //contents = itemView.findViewById(R.id.);
+            title = itemView.findViewById(R.id.tv_title);
+            contents = itemView.findViewById(R.id.contents);
             board_category = itemView.findViewById(R.id.board_category);
             nickname = itemView.findViewById(R.id.nickname);
             board_date = itemView.findViewById(R.id.board_date);

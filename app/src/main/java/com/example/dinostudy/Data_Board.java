@@ -11,7 +11,7 @@ public class Data_Board {
     public Data_Board() {
     }
 
-    public Data_Board(String documentID, String title, String contents, String category) {
+    public Data_Board(String documentID, String title, String contents, String category, String date) {
         this.documentID = documentID;
         this.title = title;
         this.contents = contents;
