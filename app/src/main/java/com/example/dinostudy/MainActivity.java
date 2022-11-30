@@ -138,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment_community fragment_community = new Fragment_community();
-                transaction.replace(R.id.frame,fragment_community);
+                FragmentBoard fragment_board = new FragmentBoard();
+                transaction.replace(R.id.frame,fragment_board);
                 transaction.commit();
 
                 btn_todo.setImageResource(R.drawable.checkbox_n);

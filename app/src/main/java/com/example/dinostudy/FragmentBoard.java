@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -88,7 +87,7 @@ public class FragmentBoard extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {    //글쓰기 화면 진입
-        Intent intent = new Intent(getActivity(), PostActivity.class);
+        Intent intent = new Intent(getActivity(), WritingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }

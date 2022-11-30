@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <View
+        android:id="@+id/view_community"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_community"
+        android:layout_marginBottom="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,11 +26,10 @@
                 android:id="@+id/rv_board"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:scrollbarFadeDuration="0"
                 android:scrollbarSize="5dp"
                 android:scrollbarThumbVertical="@android:color/darker_gray"
-                android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+                android:scrollbars="vertical"/>
 
         </LinearLayout>
     </ScrollView>
@@ -34,11 +40,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="70dp"
         app:elevation="6dp"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="50dp"
+        app:borderWidth="0dp"
         android:backgroundTint="#ffffff"
-        android:src="@drawable/write"
-        app:borderWidth="0dp" />
+        android:src="@drawable/write" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_search_board"
@@ -46,11 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="70dp"
         app:elevation="6dp"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="50dp"
+        app:borderWidth="0dp"
         android:backgroundTint="#ffffff"
-        android:src="@drawable/search"
-        app:borderWidth="0dp" />
+        android:src="@drawable/search" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_main_board"
@@ -58,11 +70,46 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="70dp"
         app:elevation="6dp"
+        app:fabCustomSize="50dp"
+        app:maxImageSize="50dp"
+        app:borderWidth="0dp"
         android:backgroundTint="@color/white"
-        android:src="@drawable/plus_big"
-        app:fabCustomSize="30dp"
-        app:borderWidth="0dp" />
+        android:src="@drawable/plus_big" />
 
+<!--
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout_community"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/view_community"
+        android:layout_marginHorizontal="10dp"
+        app:tabIndicatorColor="#929678">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/community"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#F0F3EB"
+            android:text="게시판" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/studygroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="스터디그룹" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_community"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_layout_community"
+        android:layout_marginBottom="50dp" />
+-->
 </RelativeLayout>
