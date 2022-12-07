@@ -3,6 +3,7 @@ package com.example.dinostudy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +32,7 @@ public class PostActivity extends AppCompatActivity {
     private TextView tv_title,post_category, post_nickname, board_date, board_post_content;
     private EditText et_comment_write;
     private String user,date;
-    private ImageButton btn_back;
+    //private ImageButton btn_back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class PostActivity extends AppCompatActivity {
         post_nickname = findViewById(R.id.nickname);
         board_date = findViewById(R.id.board_date);
         board_post_content = findViewById(R.id.board_post_content);
-        btn_back = findViewById(R.id.btn_back);
+        //btn_back = findViewById(R.id.btn_back);
 
         arrayList = new ArrayList<>();
 
@@ -81,6 +82,7 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
+        /*
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +92,8 @@ public class PostActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+
+         */
 
     }
 }
