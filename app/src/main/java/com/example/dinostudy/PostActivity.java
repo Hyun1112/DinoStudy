@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +29,9 @@ public class PostActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
 
     private TextView tv_title,post_category, post_nickname, board_date, board_post_content;
+    private EditText et_comment_write;
+    private String user,date;
+    private ImageButton btn_back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +47,7 @@ public class PostActivity extends AppCompatActivity {
         post_nickname = findViewById(R.id.nickname);
         board_date = findViewById(R.id.board_date);
         board_post_content = findViewById(R.id.board_post_content);
+        btn_back = findViewById(R.id.btn_back);
 
         arrayList = new ArrayList<>();
 
@@ -55,13 +64,30 @@ public class PostActivity extends AppCompatActivity {
         post_category.setText(category);
         board_post_content.setText(contents);
 
+        //댓글 작성하기
+        et_comment_write = findViewById(R.id.et_comment_write);
+        user = "hk";
+        date = "2022.12.07";
+
         Button btn_comment_insert = (Button) findViewById(R.id.btn_comment_insert);
         btn_comment_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Data_Comment dataComment = new Data_Comment("hk","2022.12.01","안녕하세요");
+                String comment = et_comment_write.getText().toString();
+
+                Data_Comment dataComment = new Data_Comment(user,date,comment);
                 arrayList.add(dataComment);
                 commentAdapter.notifyDataSetChanged();
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Fragment_watch fragment_watch = new Fragment_watch();
+                transaction.replace(R.id.frame,fragment_watch);
+                transaction.commit();
             }
         });
 
